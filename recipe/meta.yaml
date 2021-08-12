@@ -21,14 +21,14 @@ requirements:
     - python
 
 about:
-  home: The package home page
+  home: https://github.com/pfmoore/editables
   license: MIT
   license_family: MIT
-  license_file: 
-  summary: "Editable installations"
-  doc_url: 
-  dev_url: 
+  license_file: LICENSE.txt
+  summary: A Python library for creating "editable wheels"
+  doc_url: https://pypi.org/project/editables/
+  dev_url: https://github.com/pfmoore/editables
 
 extra:
   recipe-maintainers:
-    - your-github-id-here
+    - dholth
