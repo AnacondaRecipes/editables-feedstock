@@ -1,18 +1,20 @@
 {% set name = "editables" %}
-{% set version = "0.2" %}
+{% set version = "0.3" %}
+{% set checksum = "167524e377358ed1f1374e61c268f0d7a4bf7dbd046c656f7b410cde16161b1a" %}
+{% set build = "0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 6918f16225258f24ef9800c2327e14eded42ddac344e77982380749464024f35
+  sha256: {{ checksum }}
 
 build:
-  number: 0
+  number: {{ build }}
   script: "{{ PYTHON }} -m pip install . -vv"
-  noarch: python
+  skip: True  # [py<37]
 
 requirements:
   host:
