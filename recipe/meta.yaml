@@ -1,34 +1,41 @@
 {% set name = "editables" %}
-{% set version = "0.3" %}
-{% set checksum = "167524e377358ed1f1374e61c268f0d7a4bf7dbd046c656f7b410cde16161b1a" %}
-{% set build = "0" %}
+{% set version = "0.5" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: {{ checksum }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 309627d9b5c4adc0e668d8c6fa7bac1ba7c8c5d415c2d27f60f081f8e80d1de2
 
 build:
-  number: {{ build }}
-  script: "{{ PYTHON }} -m pip install . -vv"
-  skip: True  # [py<37]
+  number: 0
+  skip: true  # [py<37]
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation
 
 requirements:
   host:
-    - pip
     - python
+    - pip
+    - flit-core >=3.3
   run:
     - python
+
+test:
+  imports:
+    - editables
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/pfmoore/editables
   license: MIT
   license_family: MIT
   license_file: LICENSE.txt
-  summary: A Python library for creating "editable wheels"
+  summary: A Python library for creating 'editable wheels'
   doc_url: https://pypi.org/project/editables/
   dev_url: https://github.com/pfmoore/editables
 
