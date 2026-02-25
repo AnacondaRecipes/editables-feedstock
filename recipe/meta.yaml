@@ -36,6 +36,7 @@ about:
   license_family: MIT
   license_file: LICENSE.txt
   summary: A Python library for creating 'editable wheels'
+  description: A Python library for creating 'editable wheels'
   doc_url: https://pypi.org/project/editables/
   dev_url: https://github.com/pfmoore/editables
 
